@@ -11,19 +11,33 @@ using System.Windows.Forms;
 using System.Data.SqlClient;
 using System.Configuration;
 
+
 namespace DBConnection
 {
     public partial class Form1 : Form
     {
         OleDbConnection connection = new OleDbConnection();
-
+        
         public Form1()
         {
             InitializeComponent();
             
         }
+        
+        static string GetConnectionStringByName(string name)
+        {
+            string returnValue = null;
+            ConnectionStringSettings settings =
+                ConfigurationManager.ConnectionStrings[name];
+            if (settings != null)
+                returnValue = settings.ConnectionString;
+            return returnValue;
+        }
 
-        string testConnect = @"Provider=SQLOLEDB.1;Integrated Security=SSPI;Persist Security Info=False;Initial Catalog=AdventureWorks2019;Data Source=DESKTOP-QAPKAKD\SQLEXPRESS";
+        string testConnect = GetConnectionStringByName("DBConnect.AdventureWorks2019ConnectionString");
+
+
+        //string testConnect = @"Provider=SQLOLEDB.1;Integrated Security=SSPI;Persist Security Info=False;Initial Catalog=AdventureWorks2019;Data Source=DESKTOP-QAPKAKD\SQLEXPRESS";
 
         private void button1_Click(object sender, EventArgs e)
         {
@@ -72,9 +86,46 @@ namespace DBConnection
 
         }
 
-       
+        private void connection_StateChange(object sender, System.Data.StateChangeEventArgs e)
+        {
+            button2.Enabled =
+                (e.CurrentState == ConnectionState.Closed);
+            button3.Enabled =
+                (e.CurrentState == ConnectionState.Open);
+        }
 
 
-        
+        private void button2_Click(object sender, EventArgs e)
+        {
+            this.connection.StateChange += new
+                System.Data.StateChangeEventHandler(
+                this.connection_StateChange);
+
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            this.connection.StateChange += new
+                System.Data.StateChangeEventHandler(
+                this.connection_StateChange);
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            ConnectionStringSettingsCollection settings =
+            ConfigurationManager.ConnectionStrings;
+
+            if (settings != null)
+            {
+                foreach (ConnectionStringSettings cs in settings)
+                {
+                    MessageBox.Show("name = " + cs.Name);
+                    MessageBox.Show("providerName = " + cs.ProviderName);
+                    MessageBox.Show("connectionString = " + cs.ConnectionString);
+                }
+            }
+
+
+        }
     }
 }
