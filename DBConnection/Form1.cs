@@ -7,8 +7,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data.Common;
 using System.Data.OleDb;
 using System.Data.SqlClient;
+using System.Configuration;
+
 
 namespace DBConnection
 {
@@ -17,10 +20,24 @@ namespace DBConnection
         OleDbConnection connection = new OleDbConnection();
         string testConnect = @"Provider=SQLOLEDB.1;Integrated Security=SSPI;Persist Security Info=False;Initial Catalog=AdventureWorks2019;Data Source=DESKTOP-QAPKAKD\SQLEXPRESS";
 
+
+
         public Form1()
         {
             InitializeComponent();
+
+            this.connection.StateChange += new StateChangeEventHandler(this.connection_StateChange);
+
         }
+
+        private void connection_StateChange(object sender, System.Data.StateChangeEventArgs e)
+        {
+            button1.Enabled =
+                (e.CurrentState == ConnectionState.Closed);
+            button2.Enabled =
+                (e.CurrentState == ConnectionState.Open);
+        }
+
 
         private void button1_Click(object sender, EventArgs e)
         {
@@ -41,24 +58,7 @@ namespace DBConnection
                 MessageBox.Show(Xcp.Message, "Unexpected Exception",
                                 MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-
-
-            /*catch (OleDbException XcpSQL)
-            {
-                foreach (OleDbError se in XcpSQL.Errors)
-                {
-                    MessageBox.Show(se.Message,
-                    "SQL Error code " + se.NativeError,
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Information);
-                }
-            }*/
-
-            catch
-            {
-                MessageBox.Show("Ошибка соединения с базой данных");
-            }
-
+                       
         }
 
         private void button2_Click(object sender, EventArgs e)
