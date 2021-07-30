@@ -85,9 +85,9 @@ namespace DBConnection
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(181, 220);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(134, 17);
+            this.label1.Size = new System.Drawing.Size(145, 17);
             this.label1.TabIndex = 4;
-            this.label1.Text = "Сколько продуктов";
+            this.label1.Text = "Сколько должностей";
             // 
             // button5
             // 
