@@ -9,8 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.Common;
 using System.Data.OleDb;
-using System.Data.SqlClient;
-using System.Configuration;
+
 
 
 namespace DBConnection
