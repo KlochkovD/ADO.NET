@@ -116,5 +116,19 @@ namespace DBConnection
             label1.Text = number.ToString();
 
         }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            OleDbCommand command = connection.CreateCommand();
+            command.CommandText = "SELECT Name FROM Production.Product";
+            OleDbDataReader reader = command.ExecuteReader();
+            
+            while (reader.Read())
+            {
+                listView1.Items.Add(reader["Name"].ToString());
+            }
+
+
+        }
     }
 }
