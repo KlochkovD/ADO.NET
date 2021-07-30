@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.OleDb;
+using System.Data.SqlClient;
 
 namespace DBConnection
 {
@@ -34,6 +35,25 @@ namespace DBConnection
                 else
                     MessageBox.Show("Соединение с базой данных уже установлено");
             }
+
+            catch (Exception Xcp)
+            {
+                MessageBox.Show(Xcp.Message, "Unexpected Exception",
+                                MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+
+            /*catch (OleDbException XcpSQL)
+            {
+                foreach (OleDbError se in XcpSQL.Errors)
+                {
+                    MessageBox.Show(se.Message,
+                    "SQL Error code " + se.NativeError,
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Information);
+                }
+            }*/
+
             catch
             {
                 MessageBox.Show("Ошибка соединения с базой данных");
