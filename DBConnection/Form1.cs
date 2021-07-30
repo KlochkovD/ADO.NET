@@ -119,6 +119,12 @@ namespace DBConnection
 
         private void button5_Click(object sender, EventArgs e)
         {
+            if (connection.State == ConnectionState.Closed)
+            {
+                MessageBox.Show("Сначала подключитесь к базе");
+                return;
+            }
+
             OleDbCommand command = connection.CreateCommand();
             command.CommandText = "SELECT Name FROM Production.Product";
             OleDbDataReader reader = command.ExecuteReader();
