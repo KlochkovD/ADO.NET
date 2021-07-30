@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.Common;
 using System.Data.OleDb;
-
+using System.Configuration;
 
 
 namespace DBConnection
@@ -17,7 +17,7 @@ namespace DBConnection
     public partial class Form1 : Form
     {
         OleDbConnection connection = new OleDbConnection();
-        string testConnect = @"Provider=SQLOLEDB.1;Integrated Security=SSPI;Persist Security Info=False;Initial Catalog=AdventureWorks2019;Data Source=DESKTOP-QAPKAKD\SQLEXPRESS";
+       // string testConnect = @"Provider=SQLOLEDB.1;Integrated Security=SSPI;Persist Security Info=False;Initial Catalog=AdventureWorks2019;Data Source=DESKTOP-QAPKAKD\SQLEXPRESS";
 
 
 
@@ -28,6 +28,18 @@ namespace DBConnection
             this.connection.StateChange += new StateChangeEventHandler(this.connection_StateChange);
 
         }
+
+        static string GetConnectionStringByName(string name)
+        {
+            string returnValue = null;
+            ConnectionStringSettings settings =
+                ConfigurationManager.ConnectionStrings[name];
+            if (settings != null)
+                returnValue = settings.ConnectionString;
+            return returnValue;
+        }
+
+        string testConnect = GetConnectionStringByName("DBConnect.AdventureWorks2019ConnectionString");
 
         private void connection_StateChange(object sender, System.Data.StateChangeEventArgs e)
         {
@@ -69,6 +81,24 @@ namespace DBConnection
             }
             else
                 MessageBox.Show("Соединение с базой данных уже закрыто");
+
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            ConnectionStringSettingsCollection settings =
+            ConfigurationManager.ConnectionStrings;
+
+            if (settings != null)
+            {
+                foreach (ConnectionStringSettings cs in settings)
+                {
+                    MessageBox.Show("name = " + cs.Name);
+                    MessageBox.Show("providerName = " + cs.ProviderName);
+                    MessageBox.Show("connectionString = " + cs.ConnectionString);
+                }
+            }
+
 
         }
     }
