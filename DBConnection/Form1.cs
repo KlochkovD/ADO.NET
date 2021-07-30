@@ -2,13 +2,13 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.OleDb;
 using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Data.Common;
-using System.Data.OleDb;
+using System.Data.SqlClient;
 using System.Configuration;
 
 
@@ -111,7 +111,7 @@ namespace DBConnection
             }
             OleDbCommand command = new OleDbCommand();
             command.Connection = connection;
-            command.CommandText = "SELECT COUNT(*) FROM Production.Product";
+            command.CommandText = "SELECT COUNT(*) FROM Person.ContactType";
             int number = (int)command.ExecuteScalar();
             label1.Text = number.ToString();
 
@@ -126,7 +126,7 @@ namespace DBConnection
             }
 
             OleDbCommand command = connection.CreateCommand();
-            command.CommandText = "SELECT Name FROM Production.Product";
+            command.CommandText = "SELECT Name FROM Person.ContactType";
             OleDbDataReader reader = command.ExecuteReader();
             
             while (reader.Read())
@@ -135,6 +135,52 @@ namespace DBConnection
             }
 
 
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            OleDbConnection connection = new OleDbConnection(testConnect);
+            connection.Open();
+            OleDbTransaction OleTran = connection.BeginTransaction();
+            OleDbCommand command = connection.CreateCommand();
+            command.Transaction = OleTran;
+
+            if (connection.State == ConnectionState.Closed)
+            {
+                MessageBox.Show("Сначала подключитесь к базе");
+                return;
+            }
+
+            try
+            {
+                command.CommandText =
+              "INSERT INTO Person.ContactType (Name) VALUES('WrongName1')";
+                command.ExecuteNonQuery();
+                command.CommandText =
+               "INSERT INTO Person.ContactType (Name) VALUES('WrongName2')";
+                command.ExecuteNonQuery();
+
+                OleTran.Commit();
+                MessageBox.Show("Both records were written to database");
+            }
+
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                try
+                {
+                    OleTran.Rollback();
+                }
+                catch (Exception exRollback)
+                {
+                    MessageBox.Show(exRollback.Message);
+                }
+
+            }
+        
+            connection.Close();
+                   
+                     
         }
     }
 }

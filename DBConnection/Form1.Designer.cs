@@ -37,6 +37,7 @@ namespace DBConnection
             this.button5 = new System.Windows.Forms.Button();
             this.listView1 = new System.Windows.Forms.ListView();
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.button6 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // button1
@@ -75,7 +76,7 @@ namespace DBConnection
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(110, 60);
             this.button4.TabIndex = 3;
-            this.button4.Text = "Сколько продуктов";
+            this.button4.Text = "Сколько должностей";
             this.button4.UseVisualStyleBackColor = true;
             this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
@@ -94,7 +95,7 @@ namespace DBConnection
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(110, 100);
             this.button5.TabIndex = 5;
-            this.button5.Text = "Список продуктов";
+            this.button5.Text = "Список должностей";
             this.button5.UseVisualStyleBackColor = true;
             this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
@@ -114,11 +115,22 @@ namespace DBConnection
             // 
             this.columnHeader1.Text = "Название продукта";
             // 
+            // button6
+            // 
+            this.button6.Location = new System.Drawing.Point(52, 306);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(110, 48);
+            this.button6.TabIndex = 7;
+            this.button6.Text = "Транзакция";
+            this.button6.UseVisualStyleBackColor = true;
+            this.button6.Click += new System.EventHandler(this.button6_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.button6);
             this.Controls.Add(this.listView1);
             this.Controls.Add(this.button5);
             this.Controls.Add(this.label1);
@@ -143,6 +155,7 @@ namespace DBConnection
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.ListView listView1;
         private System.Windows.Forms.ColumnHeader columnHeader1;
+        private System.Windows.Forms.Button button6;
     }
 }
 
