@@ -51,9 +51,9 @@ namespace DBCommand
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(105, 182);
+            this.button1.Location = new System.Drawing.Point(179, 78);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 45);
+            this.button1.Size = new System.Drawing.Size(417, 45);
             this.button1.TabIndex = 0;
             this.button1.Text = "Запрос данных";
             this.button1.UseVisualStyleBackColor = true;
@@ -61,9 +61,9 @@ namespace DBCommand
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(201, 204);
+            this.textBox1.Location = new System.Drawing.Point(0, 200);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(330, 22);
+            this.textBox1.Size = new System.Drawing.Size(801, 22);
             this.textBox1.TabIndex = 1;
             // 
             // Form1

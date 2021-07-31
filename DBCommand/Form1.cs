@@ -40,8 +40,8 @@ namespace DBCommand
 
             reader.Close();
             sqlCommand1.Connection.Close();
-           textBox1.Text = results.ToString();
-
+            textBox1.Text = results.ToString();
+            
         }
 
        
