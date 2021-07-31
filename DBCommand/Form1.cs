@@ -127,6 +127,44 @@ namespace DBCommand
 
         }
 
-      
+        private void button5_Click(object sender, EventArgs e)
+        {
+            System.Text.StringBuilder results = new System.Text.StringBuilder();
+            sqlCommand5.Parameters["@ContactTypeID"].Value = OrdYearTextBox.Text;
+            sqlCommand5.Connection.Open();
+         
+            SqlDataReader reader = sqlCommand5.ExecuteReader();
+            while (reader.Read())
+            {
+                for (int i = 0; i < reader.FieldCount; i++)
+                {
+                    results.Append(reader[i].ToString() + "\t");
+                }
+                results.Append(Environment.NewLine);
+            }
+            reader.Close();
+            sqlCommand5.Connection.Close();
+            CategoryNameTextBox.Text = results.ToString();
+            
+
+            System.Text.StringBuilder results2 = new System.Text.StringBuilder();
+            sqlCommand6.Parameters["@Name"].Value = OrdYearTextBox.Text;
+            sqlCommand6.Connection.Open();
+
+            SqlDataReader reader2 = sqlCommand6.ExecuteReader();
+            while (reader2.Read())
+            {
+                for (int i = 0; i < reader2.FieldCount; i++)
+                {
+                    results2.Append(reader2[i].ToString() + "\t");
+                }
+                results2.Append(Environment.NewLine);
+            }
+            reader.Close();
+            sqlCommand6.Connection.Close();
+           
+            OrdYearTextBox.Text = results2.ToString();
+
+        }
     }
 }

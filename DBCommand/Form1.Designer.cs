@@ -42,6 +42,11 @@ namespace DBCommand
             this.CityTextBox = new System.Windows.Forms.TextBox();
             this.button4 = new System.Windows.Forms.Button();
             this.sqlCommand4 = new System.Data.SqlClient.SqlCommand();
+            this.button5 = new System.Windows.Forms.Button();
+            this.CategoryNameTextBox = new System.Windows.Forms.TextBox();
+            this.OrdYearTextBox = new System.Windows.Forms.TextBox();
+            this.sqlCommand5 = new System.Data.SqlClient.SqlCommand();
+            this.sqlCommand6 = new System.Data.SqlClient.SqlCommand();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -105,7 +110,7 @@ namespace DBCommand
             // 
             this.CityTextBox.Location = new System.Drawing.Point(161, 288);
             this.CityTextBox.Name = "CityTextBox";
-            this.CityTextBox.Size = new System.Drawing.Size(100, 22);
+            this.CityTextBox.Size = new System.Drawing.Size(627, 22);
             this.CityTextBox.TabIndex = 4;
             this.CityTextBox.Text = "London";
             // 
@@ -126,11 +131,56 @@ namespace DBCommand
             this.sqlCommand4.Parameters.AddRange(new System.Data.SqlClient.SqlParameter[] {
             new System.Data.SqlClient.SqlParameter("@City", System.Data.SqlDbType.NVarChar, 30, "City")});
             // 
+            // button5
+            // 
+            this.button5.Location = new System.Drawing.Point(2, 336);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(153, 42);
+            this.button5.TabIndex = 6;
+            this.button5.Text = "Процедура с параметром";
+            this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
+            // 
+            // CategoryNameTextBox
+            // 
+            this.CategoryNameTextBox.Location = new System.Drawing.Point(161, 365);
+            this.CategoryNameTextBox.Name = "CategoryNameTextBox";
+            this.CategoryNameTextBox.Size = new System.Drawing.Size(627, 22);
+            this.CategoryNameTextBox.TabIndex = 7;
+            this.CategoryNameTextBox.Text = "Beverages";
+            // 
+            // OrdYearTextBox
+            // 
+            this.OrdYearTextBox.Location = new System.Drawing.Point(162, 328);
+            this.OrdYearTextBox.Name = "OrdYearTextBox";
+            this.OrdYearTextBox.Size = new System.Drawing.Size(626, 22);
+            this.OrdYearTextBox.TabIndex = 8;
+            this.OrdYearTextBox.Text = "1997";
+            // 
+            // sqlCommand5
+            // 
+            this.sqlCommand5.CommandText = "spo";
+            this.sqlCommand5.CommandType = System.Data.CommandType.StoredProcedure;
+            this.sqlCommand5.Connection = this.sqlConnection1;
+            this.sqlCommand5.Parameters.AddRange(new System.Data.SqlClient.SqlParameter[] {
+            new System.Data.SqlClient.SqlParameter("@ContactTypeID", System.Data.SqlDbType.NVarChar)});
+            // 
+            // sqlCommand6
+            // 
+            this.sqlCommand6.CommandText = "spo1";
+            this.sqlCommand6.CommandType = System.Data.CommandType.StoredProcedure;
+            this.sqlCommand6.Connection = this.sqlConnection1;
+            this.sqlCommand6.Parameters.AddRange(new System.Data.SqlClient.SqlParameter[] {
+            new System.Data.SqlClient.SqlParameter("@Name", System.Data.SqlDbType.NVarChar)});
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.OrdYearTextBox);
+            this.Controls.Add(this.CategoryNameTextBox);
+            this.Controls.Add(this.button5);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.CityTextBox);
             this.Controls.Add(this.button3);
@@ -159,6 +209,11 @@ namespace DBCommand
         private System.Windows.Forms.TextBox CityTextBox;
         private System.Windows.Forms.Button button4;
         private System.Data.SqlClient.SqlCommand sqlCommand4;
+        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.TextBox CategoryNameTextBox;
+        private System.Windows.Forms.TextBox OrdYearTextBox;
+        private System.Data.SqlClient.SqlCommand sqlCommand5;
+        private System.Data.SqlClient.SqlCommand sqlCommand6;
     }
 }
 
