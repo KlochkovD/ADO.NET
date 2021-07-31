@@ -39,6 +39,9 @@ namespace DBCommand
             this.sqlConnection1 = new System.Data.SqlClient.SqlConnection();
             this.button3 = new System.Windows.Forms.Button();
             this.sqlCommand3 = new System.Data.SqlClient.SqlCommand();
+            this.CityTextBox = new System.Windows.Forms.TextBox();
+            this.button4 = new System.Windows.Forms.Button();
+            this.sqlCommand4 = new System.Data.SqlClient.SqlCommand();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -98,11 +101,38 @@ namespace DBCommand
             // 
             this.sqlCommand3.Connection = this.sqlConnection1;
             // 
+            // CityTextBox
+            // 
+            this.CityTextBox.Location = new System.Drawing.Point(161, 288);
+            this.CityTextBox.Name = "CityTextBox";
+            this.CityTextBox.Size = new System.Drawing.Size(100, 22);
+            this.CityTextBox.TabIndex = 4;
+            this.CityTextBox.Text = "London";
+            // 
+            // button4
+            // 
+            this.button4.Location = new System.Drawing.Point(2, 264);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(153, 45);
+            this.button4.TabIndex = 5;
+            this.button4.Text = "Запрос с параметром";
+            this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
+            // 
+            // sqlCommand4
+            // 
+            this.sqlCommand4.CommandText = "SELECT AddressID,City, PostalCode FROM Person.Address WHERE City = @City";
+            this.sqlCommand4.Connection = this.sqlConnection1;
+            this.sqlCommand4.Parameters.AddRange(new System.Data.SqlClient.SqlParameter[] {
+            new System.Data.SqlClient.SqlParameter("@City", System.Data.SqlDbType.NVarChar, 30, "City")});
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.button4);
+            this.Controls.Add(this.CityTextBox);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.textBox1);
@@ -126,6 +156,9 @@ namespace DBCommand
         private System.Data.SqlClient.SqlConnection sqlConnection1;
         private System.Windows.Forms.Button button3;
         private System.Data.SqlClient.SqlCommand sqlCommand3;
+        private System.Windows.Forms.TextBox CityTextBox;
+        private System.Windows.Forms.Button button4;
+        private System.Data.SqlClient.SqlCommand sqlCommand4;
     }
 }
 
