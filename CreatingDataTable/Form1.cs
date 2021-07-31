@@ -19,7 +19,25 @@ namespace CreatingDataTable
             InitializeComponent();
         }
 
-        private void Form1_Load(object sender, EventArgs e)
+     
+        private void AddRowButton_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                DataRow CustRow = CustomersTable.NewRow();
+                Object[] CustRecord = {"ALFKI", "Alfreds Futterkiste", "Maria Anders",
+                                   "Sales Representative", "Obere Str. 57", "Berlin",null,"188532",
+                                   "Germany", "030-0074321","030-0074321"};
+                CustRow.ItemArray = CustRecord;
+                CustomersTable.Rows.Add(CustRow);
+            }
+            catch (System.Data.ConstraintException ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void Form1_Load_1(object sender, EventArgs e)
         {
             TableGrid.DataSource = CustomersTable;
             CustomersTable.Columns.Add("CustomerID", Type.GetType("System.String"));
@@ -39,23 +57,6 @@ namespace CreatingDataTable
             //CustomersTable.PrimaryKey = KeyColumns;
             CustomersTable.Columns["CustomerID"].AllowDBNull = false;
             CustomersTable.Columns["CompanyName"].AllowDBNull = false;
-        }
-
-        private void AddRowButton_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                DataRow CustRow = CustomersTable.NewRow();
-                Object[] CustRecord = {"ALFKI", "Alfreds Futterkiste", "Maria Anders",
-                                   "Sales Representative", "Obere Str. 57", "Berlin",null,"188532",
-                                   "Germany", "030-0074321","030-0074321"};
-                CustRow.ItemArray = CustRecord;
-                CustomersTable.Rows.Add(CustRow);
-            }
-            catch (System.Data.ConstraintException ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
         }
     }
 }

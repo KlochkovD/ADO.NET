@@ -63,6 +63,7 @@ namespace CreatingDataTable
             this.Controls.Add(this.AddRowButton);
             this.Name = "Form1";
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.Form1_Load_1);
             ((System.ComponentModel.ISupportInitialize)(this.TableGrid)).EndInit();
             this.ResumeLayout(false);
 
