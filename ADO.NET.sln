@@ -25,6 +25,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataSourcesWizard", "DataSo
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataBindingSimple", "DataBindingSimple\DataBindingSimple.csproj", "{9C7CC34C-3A18-4A57-9C01-BC2E9F488B47}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataBindingComplex", "DataBindingComplex\DataBindingComplex.csproj", "{77C410F4-07B2-4187-A096-1A117B0A7622}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -75,6 +77,10 @@ Global
 		{9C7CC34C-3A18-4A57-9C01-BC2E9F488B47}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9C7CC34C-3A18-4A57-9C01-BC2E9F488B47}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9C7CC34C-3A18-4A57-9C01-BC2E9F488B47}.Release|Any CPU.Build.0 = Release|Any CPU
+		{77C410F4-07B2-4187-A096-1A117B0A7622}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{77C410F4-07B2-4187-A096-1A117B0A7622}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{77C410F4-07B2-4187-A096-1A117B0A7622}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{77C410F4-07B2-4187-A096-1A117B0A7622}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
