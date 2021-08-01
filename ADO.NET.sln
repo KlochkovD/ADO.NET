@@ -21,6 +21,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WorkingDataTable", "Working
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataViewExample", "DataViewExample\DataViewExample.csproj", "{7F310991-86AA-49FD-88B5-A80322E27D3A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataSourcesWizard", "DataSourcesWizard\DataSourcesWizard.csproj", "{FAC235EC-EA72-48E2-93A9-3848B9763D12}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -63,6 +65,10 @@ Global
 		{7F310991-86AA-49FD-88B5-A80322E27D3A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7F310991-86AA-49FD-88B5-A80322E27D3A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7F310991-86AA-49FD-88B5-A80322E27D3A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FAC235EC-EA72-48E2-93A9-3848B9763D12}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FAC235EC-EA72-48E2-93A9-3848B9763D12}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FAC235EC-EA72-48E2-93A9-3848B9763D12}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FAC235EC-EA72-48E2-93A9-3848B9763D12}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
