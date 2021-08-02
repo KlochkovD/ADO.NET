@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{CCA3B922-1EA5-4B33-A8DE-5D40727EED1C}</ProjectGuid>
+    <ProjectGuid>{75671A6B-D21C-4EB3-AFD1-831B34FD8016}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>DataAdapterWizard</RootNamespace>
-    <AssemblyName>DataAdapterWizard</AssemblyName>
+    <RootNamespace>ZachetnoeZadanie</RootNamespace>
+    <AssemblyName>ZachetnoeZadanie</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -46,16 +46,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="NorthwindDataSe.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>NorthwindDataSe.xsd</DependentUpon>
-    </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="NorthwindDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>NorthwindDataSet.xsd</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -71,16 +71,16 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <None Include="NorthwindDataSe.xsc">
-      <DependentUpon>NorthwindDataSe.xsd</DependentUpon>
+    <None Include="NorthwindDataSet.xsc">
+      <DependentUpon>NorthwindDataSet.xsd</DependentUpon>
     </None>
-    <None Include="NorthwindDataSe.xsd">
-      <SubType>Designer</SubType>
+    <None Include="NorthwindDataSet.xsd">
       <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>NorthwindDataSe.Designer.cs</LastGenOutput>
+      <LastGenOutput>NorthwindDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
     </None>
-    <None Include="NorthwindDataSe.xss">
-      <DependentUpon>NorthwindDataSe.xsd</DependentUpon>
+    <None Include="NorthwindDataSet.xss">
+      <DependentUpon>NorthwindDataSet.xsd</DependentUpon>
     </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
