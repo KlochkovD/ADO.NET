@@ -51,6 +51,7 @@ namespace CustomerManager
             this.textBoxCustomer = new System.Windows.Forms.TextBox();
             this.labelid = new System.Windows.Forms.Label();
             this.GridView = new System.Windows.Forms.DataGridView();
+            this.ViporderradioButton = new System.Windows.Forms.RadioButton();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.GridView)).BeginInit();
             this.SuspendLayout();
@@ -256,11 +257,23 @@ namespace CustomerManager
             this.GridView.TabIndex = 19;
             this.GridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.GridView_CellContentClick);
             // 
+            // ViporderradioButton
+            // 
+            this.ViporderradioButton.AutoSize = true;
+            this.ViporderradioButton.Location = new System.Drawing.Point(451, 240);
+            this.ViporderradioButton.Name = "ViporderradioButton";
+            this.ViporderradioButton.Size = new System.Drawing.Size(90, 21);
+            this.ViporderradioButton.TabIndex = 20;
+            this.ViporderradioButton.TabStop = true;
+            this.ViporderradioButton.Text = "Viporders";
+            this.ViporderradioButton.UseVisualStyleBackColor = true;
+            // 
             // CustomerViewer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.ViporderradioButton);
             this.Controls.Add(this.GridView);
             this.Controls.Add(this.labelid);
             this.Controls.Add(this.textBoxCustomer);
@@ -316,6 +329,7 @@ namespace CustomerManager
         private System.Windows.Forms.TextBox textBoxCustomer;
         private System.Windows.Forms.Label labelid;
         private System.Windows.Forms.DataGridView GridView;
+        private System.Windows.Forms.RadioButton ViporderradioButton;
     }
 }
 
