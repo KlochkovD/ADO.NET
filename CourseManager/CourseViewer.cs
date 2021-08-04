@@ -33,8 +33,11 @@ namespace CourseManager
             try
             {
                 this.departmentList.DisplayMember = "Name";
-                this.departmentList.DataSource = ((ObjectQuery)departmentQuery).Execute(MergeOption.AppendOnly);
+                this.departmentList.DataSource = departmentQuery.ToList();
+               
             }
+
+
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
