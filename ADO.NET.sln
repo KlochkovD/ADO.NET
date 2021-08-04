@@ -41,6 +41,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CourseManager", "CourseMana
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SavingDataSetXml", "SavingDataSetXml\SavingDataSetXml.csproj", "{07293244-69A5-4FD9-BE35-21FCFDF69360}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LoadDataSetXml", "LoadDataSetXml\LoadDataSetXml.csproj", "{9E66E409-FD8B-4F47-ADA3-FE63DC2D4C63}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -123,6 +125,10 @@ Global
 		{07293244-69A5-4FD9-BE35-21FCFDF69360}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{07293244-69A5-4FD9-BE35-21FCFDF69360}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{07293244-69A5-4FD9-BE35-21FCFDF69360}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9E66E409-FD8B-4F47-ADA3-FE63DC2D4C63}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9E66E409-FD8B-4F47-ADA3-FE63DC2D4C63}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9E66E409-FD8B-4F47-ADA3-FE63DC2D4C63}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9E66E409-FD8B-4F47-ADA3-FE63DC2D4C63}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
