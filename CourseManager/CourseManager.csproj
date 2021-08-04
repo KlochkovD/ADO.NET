@@ -44,6 +44,7 @@
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Data.Entity" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
     <Reference Include="System.Xml.Linq" />
@@ -135,19 +136,19 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
     <Content Include="School.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>School.Context.cs</LastGenOutput>
       <DependentUpon>School.edmx</DependentUpon>
+      <LastGenOutput>School.Context.cs</LastGenOutput>
     </Content>
     <Content Include="School.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>School.edmx</DependentUpon>
       <LastGenOutput>School.cs</LastGenOutput>
     </Content>
-  </ItemGroup>
-  <ItemGroup>
-    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

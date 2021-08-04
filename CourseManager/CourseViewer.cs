@@ -2,21 +2,20 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
-using System.Data.Entity;
-using System.Data.Entity.Core.Objects;
-using System.Data.Entity.Core.Objects.DataClasses;
 using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+using System.Data.Objects;
+using System.Data.Objects.DataClasses;
 
 namespace CourseManager
 {
     public partial class CourseViewer : Form
     {
         private SchoolEntities schoolContext;
+
         public CourseViewer()
         {
             InitializeComponent();
@@ -25,34 +24,24 @@ namespace CourseManager
         private void CourseViewer_Load(object sender, EventArgs e)
         {
             schoolContext = new SchoolEntities();
-            var departmentQuery = from d 
-            in schoolContext.Departments.Include("Courses")
-            orderby d.Name
-            select d;
 
             try
             {
                 this.departmentList.DisplayMember = "Name";
-                this.departmentList.DataSource = departmentQuery.ToList();
-               
+                this.departmentList.DataSource = schoolContext.Departments.SqlQuery("SELECT * FROM Department").ToList<Department>();
             }
-
-
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
-
-
         }
 
         private void departmentList_SelectedIndexChanged(object sender, EventArgs e)
         {
             try
             {
-                Department department = (Department)this.departmentList.SelectedItem;
-
-                courseGridView.DataSource = department.Courses;
+                Department department = this.departmentList.SelectedItem as Department;
+                courseGridView.DataSource = department.Courses.ToList();
 
                 courseGridView.Columns["Department"].Visible = false;
                 courseGridView.Columns["StudentGrades"].Visible = false;
@@ -83,14 +72,12 @@ namespace CourseManager
             {
                 MessageBox.Show(ex.Message);
             }
-
         }
 
         private void closeForm_Click(object sender, EventArgs e)
         {
             this.Close();
             schoolContext.Dispose();
-
         }
     }
 }
