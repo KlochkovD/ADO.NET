@@ -148,6 +148,7 @@ namespace CustomerManager
             this.buttonDel.TabIndex = 10;
             this.buttonDel.Text = "Удалить";
             this.buttonDel.UseVisualStyleBackColor = true;
+            this.buttonDel.Click += new System.EventHandler(this.buttonDel_Click);
             // 
             // label1
             // 
@@ -253,6 +254,7 @@ namespace CustomerManager
             this.GridView.RowTemplate.Height = 24;
             this.GridView.Size = new System.Drawing.Size(800, 150);
             this.GridView.TabIndex = 19;
+            this.GridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.GridView_CellContentClick);
             // 
             // CustomerViewer
             // 
