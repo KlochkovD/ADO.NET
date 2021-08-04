@@ -11,12 +11,16 @@ using CodeFirst;
 using System.Data.SqlClient;
 using System.Data.Entity;
 
+
+
 namespace CustomerManager
 {
     public partial class CustomerViewer : Form
     {
         SampleContext context = new SampleContext();
         byte[] Ph;
+
+
         private void Output()
         {
             if (this.CustomerradioButton.Checked == true)
@@ -29,7 +33,7 @@ namespace CustomerManager
         public CustomerViewer()
         {
             InitializeComponent();
-           
+            //Database.SetInitializer(new DropCreateDatabaseIfModelChanges<SampleContext>());
         }
 
         private void buttonAdd_Click(object sender, EventArgs e)
@@ -38,18 +42,25 @@ namespace CustomerManager
             {
                 Customer customer = new Customer
                 {
-                    Name = this.textBoxname.Text,
+
+
+                    FirstName = this.textBoxname.Text,
+                    LastName = this.textBoxlastname.Text,
                     Email = this.textBoxmail.Text,
                     Age = Int32.Parse(this.textBoxage.Text),
                     Orders = orderlistBox.SelectedItems.OfType<Order>().ToList(),
                     Photo = Ph
+
                 };
                 context.Customers.Add(customer);
                 context.SaveChanges();
                 Output();
                 textBoxname.Text = String.Empty;
+                textBoxlastname.Text = String.Empty;
                 textBoxmail.Text = String.Empty;
                 textBoxage.Text = String.Empty;
+
+
 
             }
             catch (Exception ex)
@@ -74,7 +85,7 @@ namespace CustomerManager
         private void buttonOut_Click(object sender, EventArgs e)
         {
             var query = from b in context.Customers
-                        orderby b.Name
+                        orderby b.FirstName
                         select b;
             customerList.DataSource = query.ToList();
 
