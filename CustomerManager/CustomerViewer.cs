@@ -17,6 +17,14 @@ namespace CustomerManager
     {
         SampleContext context = new SampleContext();
         byte[] Ph;
+        private void Output()
+        {
+            if (this.CustomerradioButton.Checked == true)
+                GridView.DataSource = context.Customers.ToList();
+            else if (this.OrderradioButton.Checked == true)
+                GridView.DataSource = context.Orders.ToList();
+        }
+
 
         public CustomerViewer()
         {
@@ -33,13 +41,16 @@ namespace CustomerManager
                     Name = this.textBoxname.Text,
                     Email = this.textBoxmail.Text,
                     Age = Int32.Parse(this.textBoxage.Text),
+                    Orders = orderlistBox.SelectedItems.OfType<Order>().ToList(),
                     Photo = Ph
                 };
                 context.Customers.Add(customer);
                 context.SaveChanges();
+                Output();
                 textBoxname.Text = String.Empty;
                 textBoxmail.Text = String.Empty;
                 textBoxage.Text = String.Empty;
+
             }
             catch (Exception ex)
             {
@@ -57,6 +68,24 @@ namespace CustomerManager
                 ImageConverter converter = new ImageConverter();
                 Ph = (byte[])converter.ConvertTo(bm, typeof(byte[]));
             }
+
+        }
+
+        private void buttonOut_Click(object sender, EventArgs e)
+        {
+            var query = from b in context.Customers
+                        orderby b.Name
+                        select b;
+            customerList.DataSource = query.ToList();
+
+        }
+
+        private void CustomerViewer_Load(object sender, EventArgs e)
+        {
+            context.Orders.Add(new Order { ProductName = "Аудио", Quantity = 12, PurchaseDate = DateTime.Parse("12.01.2016") });
+            context.Orders.Add(new Order { ProductName = "Видео", Quantity = 22, PurchaseDate = DateTime.Parse("10.01.2016") });
+            context.SaveChanges();
+            orderlistBox.DataSource = context.Orders.ToList();
 
         }
     }
